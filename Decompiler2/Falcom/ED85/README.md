@@ -1,20 +1,33 @@
-## 使用说明
+# Reverie 
 
-* https://github.com/Ouroboros/Falcom/wiki/Decompiler2-ED8-Usage
+## Usage
 
-**本作几乎全部从 `SenScriptsDecompiler` 抄的, 懒得去分析了, 但是有校验长度, 应该不会有几个 bug**
+Run the `activateED85venv.bat` script in the Decompiler2 directory either in terminal or by double clicking. This will open a terminal in the ED85 directory with venv activated ready to use for Reverie. Similarly, running `activateVenv.bat` in the `Decompiler2\Falcom\ED85` directory will do the same.
 
+To disassemble a script file `.dat`, have the script file in the `Falcom/ED85` folder and run the following command
 
-## 支持文件类型
+`scena2py.py *.dat`
 
-* scripts\\*.dat
-* text\
-    * t_bgm.tbl
-    * t_name.tbl
-    * t_se.tbl
-    * t_voice.tbl
+where `*.dat` is (path to) the script file. The output will be in the directory with `scena2py.py` named `*.py`. If the above command does not work, try `python scena2py.py *.dat`
 
+To disassemble a table file (.tbl), have the table file in the `Falcom/ED85` folder and run the following command
 
-## 参考链接
+`tbl2py.py *.tbl`
 
-* https://github.com/TwnKey/SenScriptsDecompiler
+where `*.tbl` is (path to) the table file. The output will be in the directory with `tbl2py.py` named `*.py`. If the above command does not work, try `python tbl2py.py *.tbl`
+
+To assemble the `*.py` back to either the script file (`*.dat`) or table file (`*.tbl`), run the python file in the terminal, i.e `*.py` or `python *.py` in the same folder that it was created in.
+
+# Supported files
+
+# New features
+New instruction `OP_F1` has been added to the game scripts for Reverie Script Extender from [Kiseki-Frida](https://github.com/Drew0912/kiseki-frida). It can be used by the instruction `Call2SE()` and takes in a string.
+
+## Table (text\\) files
+
+- t_bgm.tbl
+- t_name.tbl
+- t_se.tbl
+- t_voice.tbl
+- t_magic.tbl
+- t_item.tbl
