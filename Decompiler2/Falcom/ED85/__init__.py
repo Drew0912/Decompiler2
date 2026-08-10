@@ -9,8 +9,11 @@ def _init():
     Common.log.name = 'ED85'
 
     if not Common.GlobalConfig.ChrTable:
-        from .Metadata.chrId_table import chrIdTable
-        Common.GlobalConfig.ChrTable.update(chrIdTable)
+        try:
+            from .Metadata.chrId_table import chrIdTable
+            Common.GlobalConfig.ChrTable.update(chrIdTable)
+        except ModuleNotFoundError as e:
+            print(f"No chrId Metadata found, run gen_tables.py: {e}")
 
 _init()
 
