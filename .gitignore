@@ -1,0 +1,10 @@
+# Vscode
+.Vscode
+
+# Python
+.venv
+__pycache__
+
+# Kiseki
+*.dat
+*.tbl
