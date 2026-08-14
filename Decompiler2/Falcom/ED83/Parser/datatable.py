@@ -389,8 +389,10 @@ class DataTable:
 
             try:
                 self.load(fs)
-            except:
+            except KeyError as e:
                 print(f'pos = 0x{fs.Position:X}')
+                if e.args[0] == '':
+                    print('Likely using old unsupported DataTable with same name')
                 raise
 
     def load(self, fs: fileio.FileStream):
