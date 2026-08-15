@@ -31,3 +31,4 @@ New instruction `OP_F1` has been added to the game scripts for Reverie Script Ex
 - t_voice.tbl
 - t_magic.tbl
 - t_item.tbl
+- t_mons.tbl
