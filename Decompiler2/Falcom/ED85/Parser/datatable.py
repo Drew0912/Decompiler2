@@ -278,6 +278,75 @@ class ItemHelpData(TableDataEntry):
         ('byte7',   'B'),
 )
 
+# t_magic.tbl
+class MagicTableData(TableDataEntry):
+    ENTRY_NAME = 'magic'
+    DESCRIPTOR = (
+        ('id',              'W'), 
+        ('chrId',           'W'), 
+        ('targetType',      'S'), 
+        ('type',            'B'), 
+        ('damageType',      'B'), 
+        ('attribute',       'B'), 
+        ('battleStyle',     'B'), 
+        ('rangeType',       'B'), 
+        ('range',           'f'),
+        ('area',            'C'),
+        ('float2',          'f'),
+        ('float3',          'f'),
+        ('float4',          'f'),
+
+        ('effect1',         'W'),
+        ('effect1Param1',   'I'),
+        ('effect1Param2',   'I'),
+        ('effect1Param3',   'I'),
+
+        ('effect2',         'W'),
+        ('effect2Param1',   'I'),
+        ('effect2Param2',   'I'),
+        ('effect2Param3',   'I'),
+
+        ('effect3',         'W'),
+        ('effect3Param1',   'I'),
+        ('effect3Param2',   'I'),
+        ('effect3Param3',   'I'),
+
+        ('effect4',         'W'),
+        ('effect4Param1',   'I'),
+        ('effect4Param2',   'I'),
+        ('effect4Param3',   'I'),
+
+        ('effect5',         'W'),
+        ('effect5Param1',   'I'),
+        ('effect5Param2',   'I'),
+        ('effect5Param3',   'I'),
+
+        ('ariaAT',          'C'),
+        ('at',              'C'),
+        ('costType',        'C'),
+        ('epcp',            'H'),
+        ('unbalanceRate',   'C'),
+        ('breakRate',       'H'),
+        ('level',           'C'),
+        ('byte5',           'B'),
+        ('sortId',          'W'),
+        ('ani',             'S'),
+        ('name',            'S'),
+        ('description',     'S'),
+    )
+
+class ReplaceCraftData(TableDataEntry):
+    ENTRY_NAME = 'replace_ex_craft'
+    DESCRIPTOR = (
+        ('chrId',           'W'),
+        ('originalCraftId', 'W'),
+        ('replacedCraftId', 'W'),
+
+        ('word01',          'W'),
+        ('scenaFlag',       'W'),
+        ('word02',          'W'),
+    )
+
 DataTable.DataTableDataTypes.update({
     'MapBgmTableData'       : MapBgmTableData,
     'EventTableData'        : EventTableData,
@@ -288,6 +357,8 @@ DataTable.DataTableDataTypes.update({
     'status'                : StatusTableData,
     'mcburn_resist'         : McburnResistTableData,
     'ItemHelpData'          : ItemHelpData,
+    'magic'                 : MagicTableData,
+    'replace_ex_craft'      : ReplaceCraftData,
 })
 
 DataTable.PythonHeader = [
