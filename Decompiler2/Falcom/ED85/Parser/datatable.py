@@ -266,6 +266,18 @@ class McburnResistTableData(TableDataEntry):
         ('long1',           'L'),
 )
 
+class ItemHelpData(TableDataEntry):
+    DESCRIPTOR  = (
+        ('id',      'W'),
+        ('word',    'W'),
+        ('desc',    'S'),
+        ('word3',   'W'),
+        ('word4',   'W'),
+        ('word5',   'W'),
+        ('word6',   'W'),
+        ('byte7',   'B'),
+)
+
 DataTable.DataTableDataTypes.update({
     'MapBgmTableData'       : MapBgmTableData,
     'EventTableData'        : EventTableData,
@@ -275,6 +287,7 @@ DataTable.DataTableDataTypes.update({
     'item_e'                : ItemTableDataEquipment,
     'status'                : StatusTableData,
     'mcburn_resist'         : McburnResistTableData,
+    'ItemHelpData'          : ItemHelpData,
 })
 
 DataTable.PythonHeader = [
