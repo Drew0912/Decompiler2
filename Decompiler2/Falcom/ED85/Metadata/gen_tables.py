@@ -36,56 +36,57 @@ def gen_name_table():
 
     open('chrId_table.py', 'wb').write('\n'.join(lines).encode())
 
-# def gen_item_table():
-#     from t_item import entries
+def gen_item_table():
+    from t_item import entries
 
-#     nameset = set()
-#     chrmap = {}
-#     lines = ['itemIdTable = {']
+    itemmap = {}
+    lines = ['itemIdTable = {']
 
-#     for e in entries:
-#         name = e.name
+    for e in entries:
+        name = e.name
 
-#         nameset.add(name)
-#         chrmap[name] = e.itemId
+        itemmap[name] = e.itemId
 
-#     for k, v in chrmap.items():
-#         lines.append(f'  "{k}": 0x{v:04X},')
+    for k, v in itemmap.items():
+        lines.append(f'  "{k}": 0x{v:04X},')
 
-#     for k, v in chrmap.items():
-#         lines.append(f'  0x{v:04X}: "{k}",')
+    for k, v in itemmap.items():
+        lines.append(f'  0x{v:04X}: "{k}",')
 
-#     lines.append('}')
+    lines.append('}')
 
-#     open('itemId_table.py', 'wb').write('\n'.join(lines).encode())
+    open('itemId_table.py', 'wb').write('\n'.join(lines).encode())
 
-# def gen_craft_table():
-#     from t_magic import entries
+def gen_craft_table():
+    from t_magic import entries
 
-#     nameset = set()
-#     chrmap = {}
-#     lines = ['craftIdTable = {']
+    nameset = set()
+    craftmap = {}
+    lines = ['craftIdTable = {']
 
-#     for e in entries:
-#         if e.__class__.__name__ != 'MagicTableData':
-#             continue
+    for e in entries:
+        if e.__class__.__name__ != 'MagicTableData':
+            continue
 
-#         name = e.name
-#         if name in nameset:
-#             name = f'{e.name}_{e.id:04X}'
+        name = e.name
+        if name in nameset:
+            # if e.id in craftmap.values():
+            #     continue
 
-#         nameset.add(name)
-#         chrmap[name] = e.id
+            name = f'{e.name}_{e.id:04X}'
 
-#     for k, v in chrmap.items():
-#         lines.append(f'  "{k}": 0x{v:04X},')
+        nameset.add(name)
+        craftmap[name] = e.id
 
-#     for k, v in chrmap.items():
-#         lines.append(f'  0x{v:04X}: "{k}",')
+    for k, v in craftmap.items():
+        lines.append(f'  "{k}": 0x{v:04X},')
 
-#     lines.append('}')
+    for k, v in craftmap.items():
+        lines.append(f'  0x{v:04X}: "{k}",')
 
-#     open('craftId_table.py', 'wb').write('\n'.join(lines).encode())
+    lines.append('}')
+
+    open('craftId_table.py', 'wb').write('\n'.join(lines).encode())
 
 # def gen_bgm_table():
 #     from t_bgm import entries
@@ -118,8 +119,8 @@ def gen_name_table():
 def main():
     for f in [
         gen_name_table,
-        # gen_item_table,
-        # gen_craft_table,
+        gen_item_table,
+        gen_craft_table,
         # gen_bgm_table,
     ]:
         try:

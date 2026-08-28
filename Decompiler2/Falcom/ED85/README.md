@@ -32,3 +32,9 @@ New instruction `OP_F1` has been added to the game scripts for Reverie Script Ex
 - t_magic.tbl
 - t_item.tbl
 - t_mons.tbl
+
+## Metadata
+
+- chrId
+- craftId (May not be perfect due to name and craftId not being unique enough e.g United Assault)
+- itemId
