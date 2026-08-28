@@ -205,10 +205,19 @@ def ForEachTarget(cb, reg = 0):
 
     BattleTargetsIterReset(0x01, 0xFFFE)
 
+# Opcode helper functions
+
+
 # debug 0x07
 
 def DebugString(s: str):
     DebugLog(0x02, ParamStr(s))
+
+def DebugArg(a: Tuple[int, int, int]):
+    DebugLog(0x00, a)
+
+def Call2SE(s: str):
+    Call2(ParamStr(s))
 
 
 # menu cmd 0x29

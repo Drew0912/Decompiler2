@@ -1790,3 +1790,13 @@ def OP_E6(arg1: uint16):
     # 0xE6
     assert isinstance(arg1, uint16)
     _gScena.handleOpCode(0xE6, arg1)
+
+def OP_F1(arg1: tuple | list):
+    # 0xF1
+    assert isinstance(arg1, tuple | list)
+    _gScena.handleOpCode(0xF1, arg1)
+
+def Call2(arg1: tuple | list):
+    # 0xF1
+    assert isinstance(arg1, tuple | list)
+    _gScena.handleOpCode(0xF1, arg1)

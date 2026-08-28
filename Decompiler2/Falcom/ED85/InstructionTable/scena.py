@@ -1562,6 +1562,7 @@ ScenaOpTable = ED85InstructionTable(ED84ScenaOpTable).update([
     inst(0xE3,  'OP_E3',                        desc_E3),
     inst(0xE5,  'OP_E5',                        desc_E5),
     inst(0xE6,  'OP_E6',                        'W'),
+    inst(0xF1,  'Call2',                        'V'),
 ])
 
 del inst
